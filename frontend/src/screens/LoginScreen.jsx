@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Form, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 
+import Loader from "../components/Loader";
 import { useLoginMutation } from '../slices/usersApiSlice'
 import { setCredentials } from "../slices/authSlice";
 import FormContainer from '../components/FormContainer'
@@ -60,6 +61,7 @@ const LoginScreen = () => {
                     >
                     </Form.Control>
                 </Form.Group>
+                {isLoading && <Loader />}
                 <Button type='submit' variant="primary" className="mt-3">
                     Sign In
                 </Button>
